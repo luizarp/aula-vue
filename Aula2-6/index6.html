@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <title>Curso Vue - aula 6</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="text">
+    <button type="button" v-on:click="save"> Salvar</button>
+    <span>{{ savedText }}</span>
+  </div>
+</body>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data() {
+      return (
+        text = "",
+        savedText = ""
+      );
+    },
+    methods: {
+      save() {
+        this.savedText = this.text;
+        this.text = ''
+      }
+    }
+  });
+</script>
+
+</html>
+<!-- 
+  Sobre v-bind:
+:title e @click são precedidos pelo v-bind, porém podem ser escritos de ambas maneiras.
+-->
