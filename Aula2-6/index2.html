@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <title>Curso Vue - aula 2</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    <span v-bind:title="title">
+      {{ message }}
+    </span>
+  </div>
+</body>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data() {
+      return (
+        message = 'Hello Word',
+        title = 'Temos um titulo'
+      )
+    },
+  });
+</script>
+
+</html>
