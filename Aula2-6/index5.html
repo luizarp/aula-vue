@@ -1,0 +1,25 @@
+<html>
+
+<head>
+  <title>Curso Vue - aula 5</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="text">
+    <p>{{ text }}</p>
+  </div>
+</body>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data() {
+      return (
+        text = ''
+      );
+    },
+  });
+</script>
+
+</html>
