@@ -1,0 +1,69 @@
+<html>
+
+<head>
+  <title>Curso Vue - Desafio 1</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    <form-result :name="me.name" :age="me.age"></form-result>
+    <form-input @save="saveName"></form-input>
+    <form-input @save="saveAge"></form-input>
+  </div>
+</body>
+
+<script>
+  const formResult = Vue.component('FormResult', {
+    template: '<div>' +
+      '<p> Meu nome é {{ name }}.' +
+      '<p> Tenho {{ age }} anos.' +
+      '</div>',
+    props: {
+      name: { type: String, default: '' },
+      age: { type: String, default: '' },
+    }
+  })
+  const formInput = Vue.component('FormInput', {
+    template: '<div>' +
+      '<input type="text" v-model="text">' +
+      '<button type="button" @click="clear">Limpar</button>' +
+      '<button type="button" @click="save">Salvar</button>' +
+      '</div>',
+    data() {
+      return {
+        text: ''
+      }
+    },
+    methods: {
+      clear() {
+        this.text = ''
+      },
+      save() {
+        this.$emit('save', this.text);
+        this.clear();
+      }
+    }
+  })
+  const app = new Vue({
+    el: '#app',
+    data() {
+      return {
+        me: {
+          name: '',
+          age: ''
+        }
+      }
+    },
+    methods: {
+      saveName(name) {
+        this.me.name = name;
+      },
+      saveAge(age) {
+        this.me.age = age;
+      }
+    }
+  })
+</script>
+
+</html>
