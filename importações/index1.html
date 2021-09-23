@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <title>Curso Vue - aula 23</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    <my-form></my-form>
+  </div>
+</body>
+<script>
+  const field = {
+    template:
+      '<input type="text">'
+  }
+  const myForm = {
+    template: '<div>' +
+      '<field/>' +
+      '</div>',
+    components: {
+      field
+    }
+  }
+  const app = new Vue({
+    el: '#app',
+    components: {
+      myForm
+    }
+  })
+</script>
+
+</html>
+
+<!-- Import de componente dentro de componente -->
