@@ -1,0 +1,43 @@
+<!-- SLOTS -->
+<html>
+
+<head>
+  <title>Curso Vue - aula 25</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
+
+<body>
+  <div id="app">
+    <my-form>
+      <button>Create</button>
+      <p>Create</p>
+      <!-- o que é escrito aqui, é transferido para o slot -->
+      
+      <template v-slot:other><other-component></other-component>      <p>Outro slot aqui.</p>
+      </template>
+    </my-form>
+  </div>
+</body>
+<script>
+  const myForm = {
+    template: '<div>' +
+      '<p>Slots padrão</p>' +
+      '<slot/>' +
+      '<p>Outro slot</p>' +
+      '<slot name="other"/>' +
+      '</div>',
+  }
+  const otherComponent = {
+    template:
+      '<p>Outro componente aqui.</p>'
+  }
+  const app = new Vue({
+    el: '#app',
+    components: {
+      myForm,
+      otherComponent
+    }
+  })
+</script>
+
+</html>
